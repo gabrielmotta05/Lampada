@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lâmpada</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      transition: background-color 1s ease;
+      background-color: #f0f0f0; /* Cor de fundo inicial (lâmpada apagada) */
+    }
+    img {
+      width: 150px;
+      height: auto;
+      margin: 20px 0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  
+  <img id="lampada" src="lampada_apagada.png" alt="Lâmpada apagada">
+  <br>
+  <button id="botao">Acender</button>
+
+  <script>
+    const lampada = document.getElementById('lampada');
+    const botao = document.getElementById('botao');
+    let lampadaAcesa = false;
+
+    botao.addEventListener('click', () => {
+      lampadaAcesa = !lampadaAcesa;
+
+      if (lampadaAcesa) {
+        lampada.src = 'lampada_acessa.png'; // Substitua pelo caminho da imagem da lâmpada acesa
+        botao.textContent = 'Apagar';
+        document.body.style.backgroundColor = '#ffeb3b'; // Cor amarela para a lâmpada acesa
+      } else {
+        lampada.src = 'lampada_apagada.png'; // Substitua pelo caminho da imagem da lâmpada apagada
+        botao.textContent = 'Acender';
+        document.body.style.backgroundColor = '#f0f0f0'; // Cor original para a lâmpada apagada
+      }
+    });
+  </script>
+</body>
+</html>
